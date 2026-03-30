@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Send } from "lucide-react";
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -27,36 +28,46 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 bg-secondary">
-      <div className="container max-w-xl">
-        <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Contact Us</h2>
-        {submitted ? (
-          <div className="bg-card border rounded-md p-6 text-center">
-            <p className="text-foreground font-semibold">Thank you for your message!</p>
-            <p className="text-muted-foreground text-sm mt-1">We will get back to you shortly.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">Name</label>
-              <input id="name" name="name" type="text" className="w-full border bg-card rounded-md px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
-              {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
+    <section id="contact" className="py-14 px-4 bg-section-alt">
+      <div className="container">
+        <div className="flex items-center gap-2 mb-6">
+          <div className="w-1 h-6 bg-primary rounded-full" />
+          <h2 className="font-heading text-xl font-bold text-foreground">Contact Us</h2>
+        </div>
+
+        <div className="max-w-lg">
+          {submitted ? (
+            <div className="bg-card border border-primary/30 rounded p-6 text-center">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                <Send className="w-5 h-5 text-primary" />
+              </div>
+              <p className="text-foreground font-semibold">Message Sent Successfully!</p>
+              <p className="text-muted-foreground text-sm mt-1">We will get back to you shortly.</p>
             </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">Email</label>
-              <input id="email" name="email" type="email" className="w-full border bg-card rounded-md px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
-              {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">Message</label>
-              <textarea id="message" name="message" rows={4} className="w-full border bg-card rounded-md px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
-              {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
-            </div>
-            <button type="submit" className="bg-primary text-primary-foreground font-semibold px-6 py-2.5 rounded-md hover:opacity-90 transition-opacity text-sm">
-              Send Message
-            </button>
-          </form>
-        )}
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4 bg-card border rounded p-6" noValidate>
+              <div>
+                <label htmlFor="name" className="block text-xs font-medium text-foreground mb-1">Full Name *</label>
+                <input id="name" name="name" type="text" className="w-full border bg-background rounded px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
+                {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-xs font-medium text-foreground mb-1">Email Address *</label>
+                <input id="email" name="email" type="email" className="w-full border bg-background rounded px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
+                {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-xs font-medium text-foreground mb-1">Message *</label>
+                <textarea id="message" name="message" rows={4} className="w-full border bg-background rounded px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
+                {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
+              </div>
+              <button type="submit" className="bg-primary text-primary-foreground font-medium px-6 py-2.5 rounded text-sm hover:opacity-90 transition-opacity flex items-center gap-2">
+                <Send className="w-4 h-4" />
+                Submit Message
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </section>
   );

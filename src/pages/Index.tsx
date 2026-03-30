@@ -1,3 +1,5 @@
+import TopBar from "@/components/TopBar";
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -8,16 +10,20 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
-  <main>
-    <HeroSection />
-    <AboutSection />
-    <ServicesSection />
-    <AdminSection />
-    <OfficeInfoSection />
-    <NoticesSection />
-    <ContactSection />
+  <div className="min-h-screen flex flex-col">
+    <TopBar />
+    <Navbar />
+    <main className="flex-1">
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <AdminSection />
+      <OfficeInfoSection />
+      <NoticesSection />
+      <ContactSection />
+    </main>
     <Footer />
-  </main>
+  </div>
 );
 
 export default Index;
