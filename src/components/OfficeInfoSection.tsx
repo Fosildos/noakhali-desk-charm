@@ -1,20 +1,29 @@
+import { MapPin, Clock, Phone, Mail } from "lucide-react";
+
+const items = [
+  { icon: MapPin, label: "Address", value: "Divisional Office Complex\nMaijdee Court, Noakhali\nBangladesh" },
+  { icon: Clock, label: "Working Hours", value: "Sunday – Thursday\n9:00 AM – 5:00 PM" },
+  { icon: Phone, label: "Phone", value: "+880-321-XXXXXXX" },
+  { icon: Mail, label: "Email", value: "info@divnoakhali.gov.bd" },
+];
+
 const OfficeInfoSection = () => (
-  <section className="py-16 px-4 bg-secondary">
-    <div className="container max-w-3xl">
-      <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Office Information</h2>
-      <div className="grid gap-6 md:grid-cols-3">
-        <div>
-          <h3 className="font-semibold text-foreground mb-1">Address</h3>
-          <p className="text-muted-foreground text-sm">Divisional Office Complex<br />Maijdee Court, Noakhali<br />Bangladesh</p>
-        </div>
-        <div>
-          <h3 className="font-semibold text-foreground mb-1">Working Hours</h3>
-          <p className="text-muted-foreground text-sm">Sunday – Thursday<br />9:00 AM – 5:00 PM</p>
-        </div>
-        <div>
-          <h3 className="font-semibold text-foreground mb-1">Contact</h3>
-          <p className="text-muted-foreground text-sm">Phone: +880-321-XXXXXXX<br />Email: info@divnoakhali.gov.bd</p>
-        </div>
+  <section className="py-14 px-4 bg-section-alt">
+    <div className="container">
+      <div className="flex items-center gap-2 mb-6">
+        <div className="w-1 h-6 bg-primary rounded-full" />
+        <h2 className="font-heading text-xl font-bold text-foreground">Office Information</h2>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {items.map((item) => (
+          <div key={item.label} className="bg-card border rounded p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <item.icon className="w-4 h-4 text-primary" />
+              <span className="font-semibold text-foreground text-sm">{item.label}</span>
+            </div>
+            <p className="text-muted-foreground text-sm whitespace-pre-line">{item.value}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

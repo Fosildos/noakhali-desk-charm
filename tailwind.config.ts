@@ -7,14 +7,14 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1.5rem",
+      padding: "1rem",
       screens: {
-        "2xl": "1100px",
+        "2xl": "1200px",
       },
     },
     fontFamily: {
-      heading: ["Merriweather", "serif"],
-      body: ["Source Sans 3", "sans-serif"],
+      heading: ["Roboto", "sans-serif"],
+      body: ["Roboto", "sans-serif"],
     },
     extend: {
       colors: {
@@ -51,6 +51,24 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        topbar: {
+          DEFAULT: "hsl(var(--topbar-bg))",
+          foreground: "hsl(var(--topbar-fg))",
+        },
+        navbar: {
+          DEFAULT: "hsl(var(--navbar-bg))",
+          foreground: "hsl(var(--navbar-fg))",
+          hover: "hsl(var(--navbar-hover))",
+        },
+        banner: {
+          DEFAULT: "hsl(var(--banner-bg))",
+          foreground: "hsl(var(--banner-fg))",
+        },
+        "section-alt": "hsl(var(--section-alt))",
+        footer: {
+          DEFAULT: "hsl(var(--footer-bg))",
+          foreground: "hsl(var(--footer-fg))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -69,22 +87,25 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "marquee": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
         },
       },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "marquee": "marquee 20s linear infinite",
+      },
+    },
+  },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
