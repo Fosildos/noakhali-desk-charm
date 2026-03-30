@@ -7,10 +7,14 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.5rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1100px",
       },
+    },
+    fontFamily: {
+      heading: ["Merriweather", "serif"],
+      body: ["Source Sans 3", "sans-serif"],
     },
     extend: {
       colors: {
