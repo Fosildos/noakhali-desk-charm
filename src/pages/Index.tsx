@@ -9,23 +9,26 @@ import OfficeInfoSection from "@/components/OfficeInfoSection";
 import NoticesSection from "@/components/NoticesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { LangProvider } from "@/contexts/LangContext";
 
 const Index = () => (
-  <div className="min-h-screen flex flex-col">
-    <TopBar />
-    <Navbar />
-    <main className="flex-1">
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <AdminSection />
-      <GallerySection />
-      <OfficeInfoSection />
-      <NoticesSection />
-      <ContactSection />
-    </main>
-    <Footer />
-  </div>
+  <LangProvider>
+    <div className="min-h-screen flex flex-col">
+      <TopBar />
+      <Navbar />
+      <main className="flex-1">
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <AdminSection />
+        <GallerySection />
+        <OfficeInfoSection />
+        <NoticesSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  </LangProvider>
 );
 
 export default Index;
