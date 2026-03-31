@@ -1,10 +1,10 @@
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
 
 const items = [
-  { icon: MapPin, label: "Address", value: "Divisional Office Complex\nMaijdee Court, Noakhali\nBangladesh" },
-  { icon: Clock, label: "Working Hours", value: "Sunday – Thursday\n9:00 AM – 5:00 PM" },
-  { icon: Phone, label: "Phone", value: "+880-321-XXXXXXX" },
-  { icon: Mail, label: "Email", value: "info@divnoakhali.gov.bd" },
+  { icon: MapPin, label: "ঠিকানা / Address", value: "বিভাগীয় কার্যালয় কমপ্লেক্স\nমাইজদী কোর্ট, নোয়াখালী\nবাংলাদেশ" },
+  { icon: Clock, label: "কর্মঘণ্টা / Working Hours", value: "রবিবার – বৃহস্পতিবার\nসকাল ৯:০০ – বিকাল ৫:০০" },
+  { icon: Phone, label: "ফোন / Phone", value: "+৮৮০-৩২১-XXXXXXX" },
+  { icon: Mail, label: "ইমেইল / Email", value: "info@divnoakhali.gov.bd" },
 ];
 
 const OfficeInfoSection = () => (
@@ -12,7 +12,7 @@ const OfficeInfoSection = () => (
     <div className="container">
       <div className="flex items-center gap-2 mb-6">
         <div className="w-1 h-6 bg-primary rounded-full" />
-        <h2 className="font-heading text-xl font-bold text-foreground">Office Information</h2>
+        <h2 className="font-heading text-xl font-bold text-foreground">অফিস তথ্য / Office Information</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {items.map((item) => (
