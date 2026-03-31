@@ -13,10 +13,10 @@ const ContactSection = () => {
     const message = (form.get("message") as string).trim();
 
     const newErrors: Record<string, string> = {};
-    if (!name) newErrors.name = "Name is required.";
-    if (!email) newErrors.email = "Email is required.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = "Enter a valid email.";
-    if (!message) newErrors.message = "Message is required.";
+    if (!name) newErrors.name = "নাম আবশ্যক / Name is required.";
+    if (!email) newErrors.email = "ইমেইল আবশ্যক / Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = "সঠিক ইমেইল দিন / Enter a valid email.";
+    if (!message) newErrors.message = "বার্তা আবশ্যক / Message is required.";
 
     if (Object.keys(newErrors).length) {
       setErrors(newErrors);
@@ -32,7 +32,7 @@ const ContactSection = () => {
       <div className="container">
         <div className="flex items-center gap-2 mb-6">
           <div className="w-1 h-6 bg-primary rounded-full" />
-          <h2 className="font-heading text-xl font-bold text-foreground">Contact Us</h2>
+          <h2 className="font-heading text-xl font-bold text-foreground">যোগাযোগ করুন / Contact Us</h2>
         </div>
 
         <div className="max-w-lg">
@@ -41,29 +41,29 @@ const ContactSection = () => {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <Send className="w-5 h-5 text-primary" />
               </div>
-              <p className="text-foreground font-semibold">Message Sent Successfully!</p>
-              <p className="text-muted-foreground text-sm mt-1">We will get back to you shortly.</p>
+              <p className="text-foreground font-semibold">বার্তা সফলভাবে পাঠানো হয়েছে!</p>
+              <p className="text-muted-foreground text-sm mt-1">Message Sent Successfully! We will get back to you shortly.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 bg-card border rounded p-6" noValidate>
               <div>
-                <label htmlFor="name" className="block text-xs font-medium text-foreground mb-1">Full Name *</label>
+                <label htmlFor="name" className="block text-xs font-medium text-foreground mb-1">পূর্ণ নাম / Full Name *</label>
                 <input id="name" name="name" type="text" className="w-full border bg-background rounded px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                 {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
               </div>
               <div>
-                <label htmlFor="email" className="block text-xs font-medium text-foreground mb-1">Email Address *</label>
+                <label htmlFor="email" className="block text-xs font-medium text-foreground mb-1">ইমেইল ঠিকানা / Email Address *</label>
                 <input id="email" name="email" type="email" className="w-full border bg-background rounded px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
                 {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
               </div>
               <div>
-                <label htmlFor="message" className="block text-xs font-medium text-foreground mb-1">Message *</label>
+                <label htmlFor="message" className="block text-xs font-medium text-foreground mb-1">বার্তা / Message *</label>
                 <textarea id="message" name="message" rows={4} className="w-full border bg-background rounded px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
                 {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
               </div>
               <button type="submit" className="bg-primary text-primary-foreground font-medium px-6 py-2.5 rounded text-sm hover:opacity-90 transition-opacity flex items-center gap-2">
                 <Send className="w-4 h-4" />
-                Submit Message
+                বার্তা পাঠান / Submit
               </button>
             </form>
           )}
